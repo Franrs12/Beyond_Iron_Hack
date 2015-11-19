@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @plant.common_name %>, <span id="scientific_name"><%= @plant.scientific_name %></span>
+</p>
+
+<p>
+  <strong>Temperatura mínima:</strong>
+  <%= @plant.min_temp %> ºC
+</p>
+
+<p>
+  <strong>Temperatura máxima:</strong>
+  <%= @plant.max_temp %> ºC
+</p>
+
+<% if @plant.description.present? %>
+<p>
+  <strong>Descripción:</strong>
+  <%= @plant.description %>
+</p>
+<% end %>
+
+<p>
+  <img src="<%= @plant.url_image %>">
+</p>
+
+<% if @plant.url_flower_image.present? %>
+  <p>
+    <strong>Flores:</strong>
+    <img src="<%= @plant.url_flower_image %>">
+  </p>
+<% end %>
+
+<% if @plant.url_leaves_image.present? %>
+  <p>
+    <strong>Hojas:</strong>
+    <img src="<%= @plant.url_leaves_image %>">
+  </p>
+<% end %>
+
+<h3>Cuidados:</h3>
+
+<p>
+  <strong>Riego:</strong>
+  <%= @plant.watering %>
+</p>
+
+
+<%= link_to 'Editar', edit_plant_path(@plant) %> |
+<%= link_to 'Regresar al listado de plantas', plants_path %>

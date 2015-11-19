@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Listing Plants</h1>
+    </div>
+    <div class="col-md-6">
+      <p class='searching'>
+        <%= form_tag plants_search_path, :method => 'get', :id => "plants_search" do %>
+        <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Buscar", :name => nil %>
+        </p>
+      <% end %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <span id="plants_table"><%= render :partial => "plants_table" %></span>
+</div>
+
+<br>
+
+<div class="container">
+  <%= link_to 'Nueva planta', new_plant_path %> | 
+  <%= link_to 'Regresar al listado de plantas', plants_path %>
+</div>
